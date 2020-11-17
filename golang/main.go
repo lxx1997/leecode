@@ -1,5 +1,5 @@
 package main
-import "fmt"
+
 func main() {
 	// 1480
 	// var nums = []int{1,2,3,4}
@@ -15,11 +15,20 @@ func main() {
 	// fmt.Println(kidsWithCandies(candies, extraCandies))
 
 	// 514
-	
+
 	// var ring string = "nyngl"
 	// var key string = "yyynnnnnnlllggg"
+
+	// var ring string = "iotfo"
+	// var key string = "fioot"
+	// fmt.Println(findRotateSteps(ring, key))
+
+	// 328
+
+	// 402
+	// num, k := "641844114176", 555
+	// fmt.Println(len(num), k)
+
+	// 406
 	
-	var ring string = "iotfo"
-	var key string = "fioot"
-	fmt.Println(findRotateSteps(ring, key))
 }

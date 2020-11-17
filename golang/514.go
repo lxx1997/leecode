@@ -1,15 +1,13 @@
 package main
+
 import "fmt"
 
 /*
 * 未解决
-*/
+ */
 var min int = 0
-func findRotateSteps(ring string, key string) int {
-	Steps(ring, key, 0, 0)
-	return min
-}
-// 递归
+
+// Steps is a func
 func Steps(ring string, key string, num int, char int) {
 	for char < len(key) {
 		var length = len(ring)
@@ -18,24 +16,24 @@ func Steps(ring string, key string, num int, char int) {
 		length1 := 0
 		length2 := 0
 		for char2 := range ring {
-			if(checkedChar) {
+			if checkedChar {
 				num++
 			}
 			fmt.Println(checkedChar, char2)
-			if(char2 == 0) {
-				if string(key[char - 1]) == string(ring[char2]) {
+			if char2 == 0 {
+				if string(key[char-1]) == string(ring[char2]) {
 					ring = changeStr(ring, char2)
-					break;
+					break
 				}
 			} else {
-				if length1 < 1 && string(key[char - 1]) == string(ring[char2]) {
+				if length1 < 1 && string(key[char-1]) == string(ring[char2]) {
 					ring = changeStr(ring, char2)
 					// Steps(ring, key, num, char - 1)
 					length1++
 					checkedChar = false
 				}
-				if length2 < 1 && string(key[char - 1]) == string(ring[length - char2]) {
-					ring = changeStr(ring, length - char2)
+				if length2 < 1 && string(key[char-1]) == string(ring[length-char2]) {
+					ring = changeStr(ring, length-char2)
 					// Steps(ring, key, num, char - 1)
 					length2++
 					checkedChar = false
@@ -58,8 +56,12 @@ func changeStr(str string, index int) string {
 	}
 	var char2 int = 0
 	for char2 < index {
-			newstr =  newstr + string(str[char2])
-			char2++
+		newstr = newstr + string(str[char2])
+		char2++
 	}
 	return newstr
+}
+func findRotateSteps(ring string, key string) int {
+	Steps(ring, key, 0, 0)
+	return min
 }
