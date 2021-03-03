@@ -7,12 +7,16 @@
 var countBits = function(num) {
   let nums = new Array(num+1).fill(0)
   for(let k = 1;k <= num; k++) {
-    let i = k
-    console.log(nums[k],k)
-    while(i > 0) {
-      nums[k]++
-      i >>= 1
+    let j = 0, i = k
+    while(i >= 1) {
+      if(i % 2 === 1) {
+        j++
+        i = (i - 1) / 2
+      } else {
+        i = i / 2
+      }
     }
+    nums[k] = j
   }
   return nums
 };
