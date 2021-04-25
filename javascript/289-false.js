@@ -13,7 +13,32 @@ var gameOfLife = function(board) {
   let row = board[0].length
   for(let i = 0; i < col; i++) {
     for(let j = 0; j < row; j++) {
-      
+      let count = 0
+      for(let n = i - 1 >= 0 ? i - 1 : 0; n < (n + 1 === col ? col : i + 1); n++) {
+        for(let m = i - 1 >= 0 ? i - 1 : 0; m < (m + 1 === row ? row : i + 1); m++) {
+          if(board[n][m] === 1) {
+            if(m !== j || n !== i) {
+              count++
+            }
+          }
+        }
+      }
+      if(board[i][j] === 1 && count >= 2 && count <= 3) {
+        newBoard[i][j] = 1
+      } else if (board[i][j] === 1 && (count < 2 || count > 3)) {
+        newBoard[i][j] = 0
+      } else if (board[i][j] === 0 && count === 3) {
+        newBoard[i][j] = 1
+      } else {
+        newBoard[i][j] = 0
+      }
     }
   }
+  return newBoard
 };
+
+console.log(gameOfLife([[0,1,0],
+                        [0,0,1],
+                        [1,1,1],
+                        [0,0,0]]))
+console.log(gameOfLife([[1,1],[1,0]]))
