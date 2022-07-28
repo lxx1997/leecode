@@ -14,7 +14,6 @@ var convert = function(s, numRows) {
     let str = ""
     for (let i = 0; i < numRows; i++) {
         for (let j = 0; j < arr.length; j++) {
-            console.log(arr, i, num - i, arr[j][i], arr[j][num - i])
             if (i === num - i) {
                 str += (arr[j][i] || "")
             } else {
